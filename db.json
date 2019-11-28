@@ -15,497 +15,121 @@
   ],
   "posts": [
     {
-      "title": "fddddfdfd",
-      "description": "fdfdfdfdfd",
-      "createdAt": "2019-11-28T09:09:16+03:00",
-      "updateAt": "2019-11-28T09:09:16+03:00",
+      "title": "1",
+      "description": "1",
+      "createdAt": "2019-11-28T23:23:28+03:00",
+      "updateAt": "2019-11-28T23:23:28+03:00",
       "claps": 0,
       "userId": 1,
       "id": 1
     },
     {
-      "title": "gndfj",
-      "description": "dgkk",
-      "createdAt": "2019-11-28T09:26:28+03:00",
-      "updateAt": "2019-11-28T09:26:28+03:00",
+      "title": "2",
+      "description": "2",
+      "createdAt": "2019-11-28T23:23:30+03:00",
+      "updateAt": "2019-11-28T23:23:30+03:00",
       "claps": 0,
       "userId": 1,
       "id": 2
     },
     {
-      "title": "asdgsd",
-      "description": "gsadg",
-      "createdAt": "2019-11-28T11:15:58+03:00",
-      "updateAt": "2019-11-28T11:15:58+03:00",
+      "title": "3",
+      "description": "3",
+      "createdAt": "2019-11-28T23:23:32+03:00",
+      "updateAt": "2019-11-28T23:23:32+03:00",
       "claps": 0,
       "userId": 1,
       "id": 3
     },
     {
-      "title": "sadgsadg",
-      "description": "asdgsdagasd",
-      "createdAt": "2019-11-28T11:16:01+03:00",
-      "updateAt": "2019-11-28T11:16:01+03:00",
+      "title": "4",
+      "description": "4",
+      "createdAt": "2019-11-28T23:23:35+03:00",
+      "updateAt": "2019-11-28T23:23:35+03:00",
       "claps": 0,
       "userId": 1,
       "id": 4
     },
     {
-      "title": "sadgasdgsadgsad",
-      "description": "gsadgasdga",
-      "createdAt": "2019-11-28T11:16:04+03:00",
-      "updateAt": "2019-11-28T11:16:04+03:00",
+      "title": "5",
+      "description": "5",
+      "createdAt": "2019-11-28T23:23:36+03:00",
+      "updateAt": "2019-11-28T23:23:36+03:00",
       "claps": 0,
       "userId": 1,
       "id": 5
     },
     {
-      "title": "sadgasdgasdg",
-      "description": "asdgasdg",
-      "createdAt": "2019-11-28T11:16:06+03:00",
-      "updateAt": "2019-11-28T11:16:06+03:00",
+      "title": "6",
+      "description": "6",
+      "createdAt": "2019-11-28T23:23:39+03:00",
+      "updateAt": "2019-11-28T23:23:39+03:00",
       "claps": 0,
       "userId": 1,
       "id": 6
     },
     {
-      "title": "sadgasdgasdgsdg",
-      "description": "asdgsagasgsdgsa",
-      "createdAt": "2019-11-28T11:16:09+03:00",
-      "updateAt": "2019-11-28T11:16:09+03:00",
+      "title": "7",
+      "description": "7",
+      "createdAt": "2019-11-28T23:23:40+03:00",
+      "updateAt": "2019-11-28T23:23:40+03:00",
       "claps": 0,
       "userId": 1,
       "id": 7
     },
     {
-      "title": "sadgsdgsa",
-      "description": "",
-      "createdAt": "2019-11-28T11:16:12+03:00",
-      "updateAt": "2019-11-28T11:16:12+03:00",
+      "title": "8",
+      "description": "8",
+      "createdAt": "2019-11-28T23:23:43+03:00",
+      "updateAt": "2019-11-28T23:23:43+03:00",
       "claps": 0,
       "userId": 1,
       "id": 8
     },
     {
-      "title": "dgasdg",
-      "description": "sadgsadgasdg",
-      "createdAt": "2019-11-28T11:16:15+03:00",
-      "updateAt": "2019-11-28T11:16:15+03:00",
+      "title": "9",
+      "description": "9",
+      "createdAt": "2019-11-28T23:23:45+03:00",
+      "updateAt": "2019-11-28T23:23:45+03:00",
       "claps": 0,
       "userId": 1,
       "id": 9
     },
     {
-      "title": "",
-      "description": "sdgasdg",
-      "createdAt": "2019-11-28T11:16:17+03:00",
-      "updateAt": "2019-11-28T11:16:17+03:00",
+      "title": "10",
+      "description": "10",
+      "createdAt": "2019-11-28T23:23:48+03:00",
+      "updateAt": "2019-11-28T23:23:48+03:00",
       "claps": 0,
       "userId": 1,
       "id": 10
     },
     {
-      "getters": {
-        "posts": [
-          {
-            "title": "fddddfdfd",
-            "description": "fdfdfdfdfd",
-            "createdAt": "2019-11-28T09:09:16+03:00",
-            "updateAt": "2019-11-28T09:09:16+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 1
-          },
-          {
-            "title": "gndfj",
-            "description": "dgkk",
-            "createdAt": "2019-11-28T09:26:28+03:00",
-            "updateAt": "2019-11-28T09:26:28+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 2
-          },
-          {
-            "title": "asdgsd",
-            "description": "gsadg",
-            "createdAt": "2019-11-28T11:15:58+03:00",
-            "updateAt": "2019-11-28T11:15:58+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 3
-          },
-          {
-            "title": "sadgsadg",
-            "description": "asdgsdagasd",
-            "createdAt": "2019-11-28T11:16:01+03:00",
-            "updateAt": "2019-11-28T11:16:01+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 4
-          },
-          {
-            "title": "sadgasdgsadgsad",
-            "description": "gsadgasdga",
-            "createdAt": "2019-11-28T11:16:04+03:00",
-            "updateAt": "2019-11-28T11:16:04+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 5
-          },
-          {
-            "title": "sadgasdgasdg",
-            "description": "asdgasdg",
-            "createdAt": "2019-11-28T11:16:06+03:00",
-            "updateAt": "2019-11-28T11:16:06+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 6
-          },
-          {
-            "title": "sadgasdgasdgsdg",
-            "description": "asdgsagasgsdgsa",
-            "createdAt": "2019-11-28T11:16:09+03:00",
-            "updateAt": "2019-11-28T11:16:09+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 7
-          },
-          {
-            "title": "sadgsdgsa",
-            "description": "",
-            "createdAt": "2019-11-28T11:16:12+03:00",
-            "updateAt": "2019-11-28T11:16:12+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 8
-          },
-          {
-            "title": "dgasdg",
-            "description": "sadgsadgasdg",
-            "createdAt": "2019-11-28T11:16:15+03:00",
-            "updateAt": "2019-11-28T11:16:15+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 9
-          },
-          {
-            "title": "",
-            "description": "sdgasdg",
-            "createdAt": "2019-11-28T11:16:17+03:00",
-            "updateAt": "2019-11-28T11:16:17+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 10
-          }
-        ],
-        "user/isAuth": true,
-        "user/role": "writer"
-      },
-      "state": {
-        "posts": [
-          {
-            "title": "fddddfdfd",
-            "description": "fdfdfdfdfd",
-            "createdAt": "2019-11-28T09:09:16+03:00",
-            "updateAt": "2019-11-28T09:09:16+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 1
-          },
-          {
-            "title": "gndfj",
-            "description": "dgkk",
-            "createdAt": "2019-11-28T09:26:28+03:00",
-            "updateAt": "2019-11-28T09:26:28+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 2
-          },
-          {
-            "title": "asdgsd",
-            "description": "gsadg",
-            "createdAt": "2019-11-28T11:15:58+03:00",
-            "updateAt": "2019-11-28T11:15:58+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 3
-          },
-          {
-            "title": "sadgsadg",
-            "description": "asdgsdagasd",
-            "createdAt": "2019-11-28T11:16:01+03:00",
-            "updateAt": "2019-11-28T11:16:01+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 4
-          },
-          {
-            "title": "sadgasdgsadgsad",
-            "description": "gsadgasdga",
-            "createdAt": "2019-11-28T11:16:04+03:00",
-            "updateAt": "2019-11-28T11:16:04+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 5
-          },
-          {
-            "title": "sadgasdgasdg",
-            "description": "asdgasdg",
-            "createdAt": "2019-11-28T11:16:06+03:00",
-            "updateAt": "2019-11-28T11:16:06+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 6
-          },
-          {
-            "title": "sadgasdgasdgsdg",
-            "description": "asdgsagasgsdgsa",
-            "createdAt": "2019-11-28T11:16:09+03:00",
-            "updateAt": "2019-11-28T11:16:09+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 7
-          },
-          {
-            "title": "sadgsdgsa",
-            "description": "",
-            "createdAt": "2019-11-28T11:16:12+03:00",
-            "updateAt": "2019-11-28T11:16:12+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 8
-          },
-          {
-            "title": "dgasdg",
-            "description": "sadgsadgasdg",
-            "createdAt": "2019-11-28T11:16:15+03:00",
-            "updateAt": "2019-11-28T11:16:15+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 9
-          },
-          {
-            "title": "",
-            "description": "sdgasdg",
-            "createdAt": "2019-11-28T11:16:17+03:00",
-            "updateAt": "2019-11-28T11:16:17+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 10
-          }
-        ],
-        "postsPaginate": 10,
-        "post": {},
-        "user": {
-          "profile": {
-            "id": 1,
-            "login": "writer@mail.com",
-            "password": 123456,
-            "role": "writer"
-          }
-        }
-      },
-      "rootGetters": {
-        "posts": [
-          {
-            "title": "fddddfdfd",
-            "description": "fdfdfdfdfd",
-            "createdAt": "2019-11-28T09:09:16+03:00",
-            "updateAt": "2019-11-28T09:09:16+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 1
-          },
-          {
-            "title": "gndfj",
-            "description": "dgkk",
-            "createdAt": "2019-11-28T09:26:28+03:00",
-            "updateAt": "2019-11-28T09:26:28+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 2
-          },
-          {
-            "title": "asdgsd",
-            "description": "gsadg",
-            "createdAt": "2019-11-28T11:15:58+03:00",
-            "updateAt": "2019-11-28T11:15:58+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 3
-          },
-          {
-            "title": "sadgsadg",
-            "description": "asdgsdagasd",
-            "createdAt": "2019-11-28T11:16:01+03:00",
-            "updateAt": "2019-11-28T11:16:01+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 4
-          },
-          {
-            "title": "sadgasdgsadgsad",
-            "description": "gsadgasdga",
-            "createdAt": "2019-11-28T11:16:04+03:00",
-            "updateAt": "2019-11-28T11:16:04+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 5
-          },
-          {
-            "title": "sadgasdgasdg",
-            "description": "asdgasdg",
-            "createdAt": "2019-11-28T11:16:06+03:00",
-            "updateAt": "2019-11-28T11:16:06+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 6
-          },
-          {
-            "title": "sadgasdgasdgsdg",
-            "description": "asdgsagasgsdgsa",
-            "createdAt": "2019-11-28T11:16:09+03:00",
-            "updateAt": "2019-11-28T11:16:09+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 7
-          },
-          {
-            "title": "sadgsdgsa",
-            "description": "",
-            "createdAt": "2019-11-28T11:16:12+03:00",
-            "updateAt": "2019-11-28T11:16:12+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 8
-          },
-          {
-            "title": "dgasdg",
-            "description": "sadgsadgasdg",
-            "createdAt": "2019-11-28T11:16:15+03:00",
-            "updateAt": "2019-11-28T11:16:15+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 9
-          },
-          {
-            "title": "",
-            "description": "sdgasdg",
-            "createdAt": "2019-11-28T11:16:17+03:00",
-            "updateAt": "2019-11-28T11:16:17+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 10
-          }
-        ],
-        "user/isAuth": true,
-        "user/role": "writer"
-      },
-      "rootState": {
-        "posts": [
-          {
-            "title": "fddddfdfd",
-            "description": "fdfdfdfdfd",
-            "createdAt": "2019-11-28T09:09:16+03:00",
-            "updateAt": "2019-11-28T09:09:16+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 1
-          },
-          {
-            "title": "gndfj",
-            "description": "dgkk",
-            "createdAt": "2019-11-28T09:26:28+03:00",
-            "updateAt": "2019-11-28T09:26:28+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 2
-          },
-          {
-            "title": "asdgsd",
-            "description": "gsadg",
-            "createdAt": "2019-11-28T11:15:58+03:00",
-            "updateAt": "2019-11-28T11:15:58+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 3
-          },
-          {
-            "title": "sadgsadg",
-            "description": "asdgsdagasd",
-            "createdAt": "2019-11-28T11:16:01+03:00",
-            "updateAt": "2019-11-28T11:16:01+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 4
-          },
-          {
-            "title": "sadgasdgsadgsad",
-            "description": "gsadgasdga",
-            "createdAt": "2019-11-28T11:16:04+03:00",
-            "updateAt": "2019-11-28T11:16:04+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 5
-          },
-          {
-            "title": "sadgasdgasdg",
-            "description": "asdgasdg",
-            "createdAt": "2019-11-28T11:16:06+03:00",
-            "updateAt": "2019-11-28T11:16:06+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 6
-          },
-          {
-            "title": "sadgasdgasdgsdg",
-            "description": "asdgsagasgsdgsa",
-            "createdAt": "2019-11-28T11:16:09+03:00",
-            "updateAt": "2019-11-28T11:16:09+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 7
-          },
-          {
-            "title": "sadgsdgsa",
-            "description": "",
-            "createdAt": "2019-11-28T11:16:12+03:00",
-            "updateAt": "2019-11-28T11:16:12+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 8
-          },
-          {
-            "title": "dgasdg",
-            "description": "sadgsadgasdg",
-            "createdAt": "2019-11-28T11:16:15+03:00",
-            "updateAt": "2019-11-28T11:16:15+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 9
-          },
-          {
-            "title": "",
-            "description": "sdgasdg",
-            "createdAt": "2019-11-28T11:16:17+03:00",
-            "updateAt": "2019-11-28T11:16:17+03:00",
-            "claps": 0,
-            "userId": 1,
-            "id": 10
-          }
-        ],
-        "postsPaginate": 10,
-        "post": {},
-        "user": {
-          "profile": {
-            "id": 1,
-            "login": "writer@mail.com",
-            "password": 123456,
-            "role": "writer"
-          }
-        }
-      },
+      "title": "11",
+      "description": "11",
+      "createdAt": "2019-11-28T23:23:50+03:00",
+      "updateAt": "2019-11-28T23:23:50+03:00",
+      "claps": 0,
+      "userId": 1,
       "id": 11
+    },
+    {
+      "title": "12",
+      "description": "12",
+      "createdAt": "2019-11-28T23:23:52+03:00",
+      "updateAt": "2019-11-28T23:23:52+03:00",
+      "claps": 3,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "title": "14",
+      "description": "14",
+      "createdAt": "2019-11-28T23:54:54+03:00",
+      "updateAt": "2019-11-28T23:54:54+03:00",
+      "claps": 6,
+      "userId": 1,
+      "id": 13
     }
   ]
 }

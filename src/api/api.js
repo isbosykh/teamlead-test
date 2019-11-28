@@ -36,13 +36,17 @@ function post(url, data) {
 
 //POSTS
 
-export function getPosts(paginate) {
-    return get(`${url}/posts?_limit=${paginate}`)
+export function getPosts(page, paginate) {
+    return get(`${url}/posts?_page=${page}&_limit=${paginate}&_sort=id&_order=desc`)
 }
 
-export function getPost(id) {
-    return get(`${url}/posts/${id}`)
+export function amount(category) {
+    return get(`${url}/${category}?_sort=id&_order=desc`)
 }
+
+
+
+//POST
 
 export function createPost(data) {
     return post(`${url}/posts`, data)

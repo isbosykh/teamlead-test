@@ -16,7 +16,7 @@
                          placeholder="Пароль"/>
             </b-field>
 
-            <b-button expanded type="is-link" @click="login">Вход</b-button>
+            <b-button expanded type="is-blue" @click="login">Вход</b-button>
         </div>
     </div>
 </template>
