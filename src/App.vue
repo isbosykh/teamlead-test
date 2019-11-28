@@ -1,29 +1,7 @@
 <template>
     <div id="app">
-        <b-navbar class="is-link">
-            <template slot="start">
-                <b-navbar-item tag="div">
-                    <DropdownSelect :options="options"/>
-                </b-navbar-item>
-            </template>
+        <Header/>
 
-            <template slot="end">
-                <b-navbar-item tag="div">
-                    <div class="buttons is-right">
-                        <b-button tag="router-link" class="button is-link" v-if="this.$store.getters['user/role'] === 'writer'" :to="{name: 'new-post'}">
-                            Новый пост
-                        </b-button>
-                        <b-button tag="router-link" class="button is-link" :to="{name: 'posts'}">
-                            К постам
-                        </b-button>
-                        <b-button v-if="isAuth" class="button is-link" @click="logout">Выйти</b-button>
-                        <b-button tag="router-link" class="button is-link" v-else :to="{name: 'auth'}">
-                            Войти
-                        </b-button>
-                    </div>
-                </b-navbar-item>
-            </template>
-        </b-navbar>
         <transition name="fade" mode="out-in">
             <router-view class="view"/>
         </transition>
@@ -32,43 +10,30 @@
 
 <script>
     import 'buefy/dist/buefy.css'
-    import DropdownSelect from "@/components/DropdownSelect";
+    import Header from "@/components/Header";
 
     export default {
         name: "app",
-        components: {DropdownSelect},
-        data() {
-            return {
-                postsAmount: undefined,
-                options: [1, 5, 10, 20]
-            }
-        },
-        computed: {
-            isAuth() {
-                return this.$store.getters['user/isAuth']
-            },
-        },
-        methods: {
-            logout() {
-                this.$store.dispatch('user/logout');
-                if (this.$route.name !== 'posts') this.$router.push({name: 'posts'})
-            },
-        }
+        components: {Header},
     };
 </script>
 
 <style lang="scss">
-    @import "../node_modules/bulma/sass/utilities/all";
-    @import "../node_modules/bulma";
-    @import "../node_modules/buefy/src/scss/buefy";
+    @import "~bulma/sass/utilities/_all";
+
+    $light: #EBEBEB;
+    $navbar-breakpoint: 0;
 
     $colors: (
-            "danger": (#326EF4, $primary-invert),
-            "light": ($light, $light)
+            "blue": (#326EF4, $primary-invert)
     );
 
-    $link: #326EF4;
-    $light: #EBEBEB;
+    @import "~bulma";
+    @import "~buefy/src/scss/buefy";
+
+    .padding-bottom {
+        padding-bottom: 20px;
+    }
 
     html {
         min-height: 100%;
@@ -88,7 +53,7 @@
 
         #app {
             flex-grow: 1;
-            font-family: "Avenir", Helvetica, Arial, sans-serif;
+            font-family: Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-align: center;

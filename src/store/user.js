@@ -35,7 +35,7 @@ export default ({
             return !!state.profile.id
         },
         role(state) {
-            return state.profile.role || false
+            return state.profile.role
         }
     },
     modules: {}

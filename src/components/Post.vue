@@ -1,8 +1,8 @@
 <template>
     <div class="columns is-mobile is-centered padding-bottom">
         <div v-if="post" class="content column is-5-widescreen is-6-tablet is-10-mobile notification is-white">
-            <h2 class="title is-4" v-if="!editable">{{ post.title }}</h2>
-            <p v-if="!editable">{{ post.description }}</p>
+            <h2 class="title is-5" v-if="!editable">{{ post.title }}</h2>
+            <p class="is-7" v-if="!editable">{{ post.description }}</p>
 
             <div v-if="editable" class="edit">
                 <b-input type="text" maxlength="30" v-model="post.title"/>
@@ -13,15 +13,18 @@
                 <div class="date">
                     {{ createDate(post.updateAt) }}
                 </div>
-                <div class="buttons is-grouped">
+                <div class="buttons asfas is-grouped">
                     <b-button v-if="editable" class="is-success is-hidden-touch" icon-left="check-square" @click="edit">Сохранить</b-button>
-                    <b-button v-if="userRole === 'writer'" class="is-light is-hidden-touch" icon-left="edit" @click="makeEditable">Изменить</b-button>
-                    <b-button v-if="userRole === 'writer'" class="is-danger is-hidden-touch" icon-left="trash-alt" @click="del">Удалить</b-button>
-                    <b-button v-if="userRole !== 'writer'" class="is-light" :disabled="userRole !== 'reader'" icon-left="sign-language" @click="clap">{{ post.claps }}</b-button>
+                    <b-button v-if="role === 'writer'" class="is-light is-hidden-touch" icon-left="edit" @click="makeEditable">
+                        <span v-if="this.$route.name === 'edit'">Отмена</span>
+                        <span v-else>Изменить</span>
+                    </b-button>
+                    <b-button v-if="role === 'writer'" class="is-danger is-hidden-touch" icon-left="trash-alt" @click="del">Удалить</b-button>
+                    <b-button v-if="role !== 'writer'" class="is-light" :disabled="role !== 'reader'" icon-left="sign-language" @click="clap">{{ post.claps }}</b-button>
 
                     <b-button v-if="editable" class="is-success is-hidden-desktop" icon-left="check-square" @click="edit"></b-button>
-                    <b-button v-if="userRole === 'writer'" class="is-light is-hidden-desktop" icon-left="edit" @click="makeEditable"></b-button>
-                    <b-button v-if="userRole === 'writer'" class="is-danger is-hidden-desktop" icon-left="trash-alt" @click="del"></b-button>
+                    <b-button v-if="role === 'writer'" class="is-light is-hidden-desktop" icon-left="edit" @click="makeEditable"></b-button>
+                    <b-button v-if="role === 'writer'" class="is-danger is-hidden-desktop" icon-left="trash-alt" @click="del"></b-button>
                 </div>
             </footer>
         </div>
@@ -34,7 +37,12 @@
     export default {
         name: "Post",
         props: {
-            postProp: Object
+            post: {
+                type: Object,
+                default: function () {
+                    return this.$store.getters.post(this.$route.params.id)
+                }
+            }
         },
         data() {
             return {
@@ -45,23 +53,16 @@
         },
         mounted() {
             if (this.$route.name === "edit") {
-                if (this.userRole !== 'writer') {
+                if (this.role !== 'writer') {
                     this.$router.push({name: 'posts'})
                 }
-                this.$store.dispatch('getPost', this.$route.params.id);
                 this.editable = true;
             }
         },
         computed: {
-            userRole() {
+            role() {
                 return this.$store.getters['user/role']
             },
-            post() {
-                if (this.$attrs.post !== undefined) return this.$attrs.post
-                else {
-                    return this.$store.state.post
-                }
-            }
         },
         methods: {
             createDate(date) {
@@ -95,10 +96,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .padding-bottom {
-        padding-bottom: 20px;
-    }
-
     .notification {
         text-align: left;
         padding: 20px;
@@ -124,6 +121,12 @@
             .date {
                 align-self: flex-end;
                 color: darkgrey;
+            }
+
+            .button::v-deep  {
+                .fa-edit, .fa-sign-language {
+                    color: #326EF4
+                }
             }
         }
     }
