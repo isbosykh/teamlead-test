@@ -22,9 +22,12 @@
                     <b-button v-if="role === 'writer'" class="is-danger is-hidden-touch" icon-left="trash-alt" @click="del">Удалить</b-button>
                     <b-button v-if="role !== 'writer'" class="is-light" :disabled="role !== 'reader'" icon-left="sign-language" @click="clap">{{ post.claps }}</b-button>
 
-                    <b-button v-if="editable" class="is-success is-hidden-desktop" icon-left="check-square" @click="edit"></b-button>
-                    <b-button v-if="role === 'writer'" class="is-light is-hidden-desktop" icon-left="edit" @click="makeEditable"></b-button>
-                    <b-button v-if="role === 'writer'" class="is-danger is-hidden-desktop" icon-left="trash-alt" @click="del"></b-button>
+                    <b-button v-if="editable" class="is-success is-hidden-desktop" icon-left="check-square"
+                              @click="edit"/>
+                    <b-button v-if="role === 'writer'" class="is-light is-hidden-desktop" icon-left="edit"
+                              @click="makeEditable"/>
+                    <b-button v-if="role === 'writer'" class="is-danger is-hidden-desktop" icon-left="trash-alt"
+                              @click="del"/>
                 </div>
             </footer>
         </div>
@@ -40,7 +43,7 @@
             post: {
                 type: Object,
                 default: function () {
-                    return this.$store.getters.post(this.$route.params.id)
+                    return this.$store.getters['posts/post'](this.$route.params.id)
                 }
             }
         },
@@ -54,7 +57,7 @@
         mounted() {
             if (this.$route.name === "edit") {
                 if (this.role !== 'writer') {
-                    this.$router.push({name: 'posts'})
+                    this.$router.push({name: 'main'})
                 }
                 this.editable = true;
             }
@@ -73,23 +76,23 @@
                 if (this.$route.name !== "edit") {
                     this.$router.push({name: 'edit', params: {id: this.post.id}
                     })}
-                else this.$router.push({name: 'posts'});
+                else this.$router.push({name: 'main'});
                 this.editable = !this.editable;
                 this.title = this.post.title;
                 this.description = this.post.description;
             },
             clap() {
                 this.post.claps += 1;
-                return this.$store.dispatch('updatePost', this.post)
+                return this.$store.dispatch('posts/updatePost', this.post)
             },
             del() {
-                this.$store.dispatch('deletePost', this.post.id);
+                this.$store.dispatch('posts/deletePost', this.post.id);
             },
             edit() {
                 this.post.updateAt = moment(Date.now()).format();
                 this.editable = !this.editable;
-                this.$store.dispatch('updatePost', this.post);
-                this.$router.push({name: 'posts'})
+                this.$store.dispatch('posts/updatePost', this.post);
+                this.$router.push({name: 'main'})
             }
         }
     }

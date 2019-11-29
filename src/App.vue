@@ -9,6 +9,8 @@
 </template>
 
 <script>
+    //TODO: - Create Users list (similar with posts)
+
     import 'buefy/dist/buefy.css'
     import Header from "@/components/Header";
 
@@ -33,6 +35,10 @@
 
     .padding-bottom {
         padding-bottom: 20px;
+    }
+
+    .margin-bottom {
+        margin-bottom: 20px;
     }
 
     html {

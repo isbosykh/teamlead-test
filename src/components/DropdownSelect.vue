@@ -19,7 +19,7 @@
         },
         methods: {
             changePaginate(value) {
-                    return this.$store.commit('changePostsOptions', {paginate: value})
+                    return this.$store.commit('posts/changeSortOptions', {paginate: value})
             }
         }
     }

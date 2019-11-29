@@ -1,4 +1,4 @@
-import {getUser} from "@/api/api";
+import {getUser, registerUser} from "@/api/api";
 
 export default ({
     namespaced: true,
@@ -21,13 +21,23 @@ export default ({
                     if (response.password.toString() === password) {
                         commit('updateUser', response);
                     } else {
-                        response.status = 'Пароль не пароль';
+                        response.error = 'Пароль не пароль';
                     }
                     return response
                 })
         },
         logout({commit}) {
             commit('resetUser');
+        },
+        register({commit}, data) {
+            return registerUser(data).then(response => {
+                if (response) {
+                    commit('updateUser', response);
+                } else {
+                    response.error = 'Неизвестная ошибка'
+                }
+                return response
+            })
         }
     },
     getters: {

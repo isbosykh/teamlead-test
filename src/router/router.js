@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Authorization from "@/views/Authorization";
-import Posts from "@/views/Posts";
+import Main from "@/views/Main";
 import Post from "@/components/Post";
 import NewPost from "@/views/NewPost";
 
@@ -13,13 +13,35 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            name: 'posts',
-            component: Posts
+            name: 'main',
+            component: Main,
+            redirect: { name: 'posts' },
+            children: [
+                {
+                    path: 'posts',
+                    name: 'posts'
+                },
+                {
+                    path: 'users',
+                    name: 'users'
+                }
+            ]
         },
         {
             path: '/auth',
             name: 'auth',
-            component: Authorization
+            component: Authorization,
+            redirect: { name: 'login' },
+            children: [
+                {
+                    path: 'login',
+                    name: 'login',
+                },
+                {
+                    path: 'register',
+                    name: 'register',
+                }
+            ]
         },
         {
             path: '/edit/:id',

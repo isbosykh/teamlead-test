@@ -31,7 +31,7 @@
         },
         mounted() {
             if (this.$store.getters['user/role'] !== 'writer') {
-                this.$router.push({name: 'posts'})
+                this.$router.push({name: 'main'})
             }
         },
         methods: {
@@ -44,8 +44,9 @@
                     claps: 0,
                     userId: this.$store.state.user.profile.id
                 };
-                this.$store.dispatch('createPost', post);
-                this.$router.push({name: 'posts'})
+
+                this.$store.dispatch('posts/createPost', post);
+                this.$router.push({name: 'main'})
             }
         }
     }

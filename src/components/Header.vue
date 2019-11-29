@@ -1,5 +1,8 @@
 <template>
-    <b-navbar class="is-blue">
+    <b-navbar type="is-blue">
+
+        <!--FIXME: Fix header-menu color <1024 width-->
+
         <template slot="start">
             <b-navbar-item v-if="path === 'posts'" tag="div">
                 <DropdownSelect :options="options"/>
@@ -12,7 +15,7 @@
                     <b-button tag="router-link" class="button is-blue" v-if="role === 'writer'" :to="{name: 'new-post'}">
                         Новый пост
                     </b-button>
-                    <b-button tag="router-link" class="button is-blue" :to="{name: 'posts'}">
+                    <b-button tag="router-link" class="button is-blue" :to="{name: 'main'}">
                         К постам
                     </b-button>
                     <b-button v-if="isAuth" class="button is-blue" @click="logout">Выйти</b-button>
@@ -27,6 +30,7 @@
 
 <script>
     import DropdownSelect from "@/components/DropdownSelect";
+    import { mapState } from 'vuex'
 
     export default {
         name: "Header",
@@ -41,9 +45,7 @@
             isAuth() {
                 return this.$store.getters['user/isAuth']
             },
-            role() {
-                return this.$store.getters['user/role']
-            },
+            ...mapState('user', ['role']),
             path() {
                 return this.$route.name
             }

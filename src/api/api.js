@@ -67,3 +67,11 @@ export function deletePost(id) {
 export function getUser(login) {
     return get(`${url}/users?login=${login}`)
 }
+
+export function getUsers() {
+    return get(`${url}/users`)
+}
+
+export function registerUser(data) {
+    return post(`${url}/users`, data)
+}

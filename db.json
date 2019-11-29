@@ -91,45 +91,18 @@
       "description": "9",
       "createdAt": "2019-11-28T23:23:45+03:00",
       "updateAt": "2019-11-28T23:23:45+03:00",
-      "claps": 0,
+      "claps": 5,
       "userId": 1,
       "id": 9
     },
     {
       "title": "10",
-      "description": "10",
+      "description": "10sdga",
       "createdAt": "2019-11-28T23:23:48+03:00",
-      "updateAt": "2019-11-28T23:23:48+03:00",
-      "claps": 0,
+      "updateAt": "2019-11-29T21:16:42+03:00",
+      "claps": 10,
       "userId": 1,
       "id": 10
-    },
-    {
-      "title": "11",
-      "description": "11",
-      "createdAt": "2019-11-28T23:23:50+03:00",
-      "updateAt": "2019-11-28T23:23:50+03:00",
-      "claps": 0,
-      "userId": 1,
-      "id": 11
-    },
-    {
-      "title": "12",
-      "description": "12",
-      "createdAt": "2019-11-28T23:23:52+03:00",
-      "updateAt": "2019-11-28T23:23:52+03:00",
-      "claps": 3,
-      "userId": 1,
-      "id": 12
-    },
-    {
-      "title": "14",
-      "description": "14",
-      "createdAt": "2019-11-28T23:54:54+03:00",
-      "updateAt": "2019-11-28T23:54:54+03:00",
-      "claps": 6,
-      "userId": 1,
-      "id": 13
     }
   ]
 }
