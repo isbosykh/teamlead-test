@@ -9,9 +9,15 @@
 </template>
 
 <script>
-    //TODO: - Create Users list (similar with posts)
+    // TODO: - Create Users list (similar with posts)
 
-    import 'buefy/dist/buefy.css'
+
+    // TODO: To commit:
+    // TODO: - Auth form validation
+    // TODO: - Rework vuex-store with internet-speed considering
+    // TODO: - Fixed header
+    // TODO: - Server start command added to README.md
+
     import Header from "@/components/Header";
 
     export default {

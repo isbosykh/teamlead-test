@@ -1,5 +1,10 @@
 # teamlead-test
 
+## Start server
+``
+json-server --watch db.json
+``
+
 ## Project setup
 ```
 npm install

@@ -1,4 +1,4 @@
-import {amount, createPost, deletePost, getPosts, updatePost} from "@/api/api";
+import {createPost, deletePost, getPosts, updatePost} from "@/api/api";
 
 export default ({
     namespaced: true,
@@ -14,39 +14,46 @@ export default ({
         updatePosts(state, payload) {
             state.posts = payload
         },
+        addPost(state, payload) {
+            state.posts.push(payload)
+        },
         updatePost(state, payload) {
             state.post = payload
         },
+        deletePost(state, payload) {
+            state.posts.splice(payload, 1)
+        },
         changeSortOptions(state, payload) {
             Object.assign(state.sortOptions, payload);
-            this.dispatch('posts/updatePosts')
+            this.dispatch('posts/updatePosts');
         }
     },
     actions: {
         updatePosts({commit, state}, page = state.sortOptions.page, paginate = state.sortOptions.paginate) {
-            return getPosts(page, paginate).then(response => commit('updatePosts', response))
-        },
-        amount({commit}, category = 'posts') {
-            return amount(category).then(response => {
-                return commit('changeSortOptions', {amount: response[0].id});
+            return getPosts(page, paginate).then(response => {
+                commit('updatePosts', response)
             })
         },
-        createPost({dispatch}, data) {
+        createPost({commit}, data) {
             return createPost(data).then(response => {
-                dispatch('updatePosts');
-                return response
+                if (response) {
+                    commit('addPost', response);
+                    return response
+                }
             })
         },
-        deletePost({dispatch}, id) {
+        deletePost({commit}, {id, index}) {
             return deletePost(id).then(response => {
-                dispatch('updatePosts');
+                commit('deletePost', index);
                 return response
             })
         },
-        updatePost({dispatch}, data) {
+        updatePost({commit}, data) {
             return updatePost(data).then(response => {
-                dispatch('updatePosts');
-                return response
+                if (response) {
+                    commit('addPost', response);
+                    return response
+                }
             })
         }
     },
@@ -58,5 +65,8 @@ export default ({
                 }
             }
         },
+        amount(state) {
+            return state.posts.length
+        }
     },
 })

@@ -40,10 +40,6 @@ export function getPosts(page, paginate) {
     return get(`${url}/posts?_page=${page}&_limit=${paginate}&_sort=id&_order=desc`)
 }
 
-export function amount(category) {
-    return get(`${url}/${category}?_sort=id&_order=desc`)
-}
-
 
 
 //POST
@@ -62,14 +58,18 @@ export function deletePost(id) {
 
 
 
+//USERS
+
+export function getUsers() {
+    return get(`${url}/users`)
+}
+
+
+
 //USER
 
 export function getUser(login) {
     return get(`${url}/users?login=${login}`)
-}
-
-export function getUsers() {
-    return get(`${url}/users`)
 }
 
 export function registerUser(data) {

@@ -3,16 +3,17 @@
         <div v-if="path === 'login'" class="column is-6-mobile is-6-tablet is-3-desktop is-8-mobile is-multiline field">
             <b-field>
                 <b-input type="email"
+                         :use-html5-validation="false"
                          placeholder="Email"
-                         v-model="loginEmailField"
+                         v-model="loginField"
                          maxlength="30">
                 </b-input>
             </b-field>
 
-            <b-field :type="{'is-danger': error}" :message="error">
+            <b-field :type="{'is-danger': errors.length !== 0 ? errors : undefined}" :message="errors.length !== 0 ? errors : undefined">
                 <b-input type="password"
                          maxlength="30"
-                         v-model="loginPasswordField"
+                         v-model="passwordField"
                          placeholder="Пароль"/>
             </b-field>
 
@@ -22,16 +23,17 @@
         <div v-if="path === 'register'" class="column is-6-mobile is-6-tablet is-3-desktop is-8-mobile is-multiline field">
             <b-field>
                 <b-input type="email"
+                         :use-html5-validation="false"
                          placeholder="Email"
-                         v-model="registerEmailField"
+                         v-model="loginField"
                          maxlength="30">
                 </b-input>
             </b-field>
 
-            <b-field :type="{'is-danger': error}" :message="error">
+            <b-field :type="{'is-danger': errors.length !== 0 ? errors : undefined}" :message="errors.length !== 0 ? errors : undefined">
                 <b-input type="password"
                          maxlength="30"
-                         v-model="registerPasswordField"
+                         v-model="passwordField"
                          placeholder="Пароль"/>
             </b-field>
 
@@ -46,11 +48,9 @@
         name: "Authorization",
         data() {
             return {
-                loginEmailField: '',
-                loginPasswordField: '',
-                registerEmailField: '',
-                registerPasswordField: '',
-                error: undefined
+                loginField: '',
+                passwordField: '',
+                errors: [],
             }
         },
         computed: {
@@ -61,20 +61,58 @@
                 return this.$route.name
             }
         },
+        beforeRouteUpdate(to, from, next) {
+            this.loginField = '';
+            this.passwordField = '';
+            this.errors = [];
+            next();
+        },
         methods: {
+            isValid() {
+                this.errors = [];
+
+                if (this.passwordField.length === 0) {
+                    this.errors.push('Поле пароля не может быть пустым');
+                    return false
+                }
+
+                if (this.loginField.length === 0) {
+                    this.errors.push('Поле логина не может быть пустым');
+                    return false
+                }
+
+                if (this.errors.length === 0) {
+                    return true
+                }
+            },
             login() {
-                this.$store.dispatch('user/login', {
-                    login: this.loginEmailField,
-                    password: this.loginPasswordField})
-                    .then(response => response.status ? this.error = response.status : this.$router.push({name: 'main'}))
+                if (this.isValid()) {
+                    this.errors = [];
+                    this.$store.dispatch('user/login', {
+                        login: this.loginField,
+                        password: this.passwordField
+                    })
+                        .then(response => {
+                            if (response) {
+                                response.error ? this.errors = response.error : this.$router.push({name: 'main'})
+                            }
+                        })
+                }
             },
             register() {
-                this.$store.dispatch('user/register', {
-                    login: this.registerEmailField,
-                    password: this.registerPasswordField,
-                    role: "reader"
-                })
-                    .then(response => response.status ? this.error = response.status : this.$router.push({name: 'main'}))
+                if (this.isValid() && /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.loginField)) {
+                    this.errors = [];
+                    this.$store.dispatch('user/register', {
+                        login: this.loginField,
+                        password: this.passwordField,
+                        role: "reader"
+                    })
+                        .then(response => {
+                            if (response) {
+                                response.error ? this.errors = response.error : this.$router.push({name: 'main'})
+                            }
+                        })
+                }
             },
         }
     }

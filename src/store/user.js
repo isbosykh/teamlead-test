@@ -18,10 +18,17 @@ export default ({
             return getUser(login)
                 .then(response => {
                     response = response[0];
-                    if (response.password.toString() === password) {
-                        commit('updateUser', response);
+                    if (response) {
+                        if (response.password.toString() === password) {
+                            commit('updateUser', response);
+                        } else {
+                            response.error = 'Пароль не пароль';
+                            return response
+                        }
                     } else {
-                        response.error = 'Пароль не пароль';
+                        return {
+                            error: 'Логин не логин'
+                        }
                     }
                     return response
                 })
@@ -34,7 +41,9 @@ export default ({
                 if (response) {
                     commit('updateUser', response);
                 } else {
-                    response.error = 'Неизвестная ошибка'
+                    return {
+                        error: 'Неизвестная ошибка'
+                    }
                 }
                 return response
             })

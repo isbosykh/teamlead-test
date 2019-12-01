@@ -6,6 +6,16 @@
                     :total="options.amount"
                     :current.sync="current"
                     :per-page="options.paginate">
+
+                <b-pagination-button
+                        style="background-color: #3273dc"
+                        slot-scope="props"
+                        :page="props.page"
+                        :id="`page${props.page.number}`"
+                        tag="router-link"
+                        :to="`/documentation/pagination#page${props.page.number}`">
+                    {{ props.page.number }}
+                </b-pagination-button>
             </b-pagination>
         </div>
 
@@ -13,6 +23,7 @@
             <div v-if="list" class="column is-8-widescreen is-12-tablet is-10-mobile is-multiline">
                 <Post v-for="(el, index) in list"
                       :key="index"
+                      :index="index"
                       :post="el"/>
             </div>
         </div>
@@ -36,16 +47,15 @@
         },
         computed: {
             options() {
-                this.$store.dispatch(`${this.namespace}/amount`);
                 return {
-                    amount: this.$store.state[this.namespace].sortOptions.amount,
+                    amount: this.$store.getters[`${[this.namespace]}/amount`],
                     paginate: this.$store.state[this.namespace].sortOptions.paginate
                 }
             },
         },
         watch: {
             current() {
-                this.$store.commit('posts/changeSortOptions', {page: this.current})
+                this.$store.commit(`${this.namespace}/changeSortOptions`, {page: this.current})
             }
         },
     }

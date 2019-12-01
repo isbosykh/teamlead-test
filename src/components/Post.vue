@@ -1,6 +1,6 @@
 <template>
     <div class="columns is-mobile is-centered padding-bottom">
-        <div v-if="post" class="content column is-5-widescreen is-6-tablet is-10-mobile notification is-white">
+        <div v-if="post" class="content column is-6-fullhd is-6-tablet is-10-mobile notification is-white">
             <h2 class="title is-5" v-if="!editable">{{ post.title }}</h2>
             <p class="is-7" v-if="!editable">{{ post.description }}</p>
 
@@ -45,7 +45,8 @@
                 default: function () {
                     return this.$store.getters['posts/post'](this.$route.params.id)
                 }
-            }
+            },
+            index: Number
         },
         data() {
             return {
@@ -86,7 +87,7 @@
                 return this.$store.dispatch('posts/updatePost', this.post)
             },
             del() {
-                this.$store.dispatch('posts/deletePost', this.post.id);
+                this.$store.dispatch('posts/deletePost', {id: this.post.id, index: this.index});
             },
             edit() {
                 this.post.updateAt = moment(Date.now()).format();
