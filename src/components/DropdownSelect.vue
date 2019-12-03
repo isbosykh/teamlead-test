@@ -10,7 +10,8 @@
     export default {
         name: "DropdownSelect",
         props: {
-            options: Array
+            options: Array,
+            path: String
         },
         data() {
             return {
@@ -19,7 +20,8 @@
         },
         methods: {
             changePaginate(value) {
-                    return this.$store.commit('posts/changeSortOptions', {paginate: value})
+                    this.$store.commit(`${this.path}/changeSortOptions`, {paginate: value});
+                    this.$store.dispatch('posts/updatePosts')
             }
         }
     }

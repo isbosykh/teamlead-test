@@ -1,6 +1,9 @@
 const url = 'http://localhost:3000';
 
-function get(url) {
+function get(url, data) {
+    url = new URL(url);
+    data = Object.assign({}, data);
+    Object.keys(data).forEach(key => url.searchParams.append(key, data[key]));
     return fetch(url, {
         method: "GET",
     }).then(response => response.json())
@@ -33,11 +36,25 @@ function post(url, data) {
 }
 
 
+export function amount(category) {
+    return get(`${url}/${category}?_sort=id&_order=desc`)
+}
+
+
 
 //POSTS
 
-export function getPosts(page, paginate) {
-    return get(`${url}/posts?_page=${page}&_limit=${paginate}&_sort=id&_order=desc`)
+export function getPosts(options) {
+    return Promise.all([
+        get(`${url}/posts`, options),
+        get(`${url}/posts`)
+    ])
+        .then(values => {
+            return {
+                count: values[1].length,
+                items: values[0]
+            }
+        });
 }
 
 

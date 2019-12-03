@@ -2,8 +2,10 @@ import Vue from "vue";
 import Router from "vue-router";
 import Authorization from "@/views/Authorization";
 import Main from "@/views/Main";
-import Post from "@/components/Post";
 import NewPost from "@/views/NewPost";
+import Posts from "@/views/Posts";
+import Users from "@/views/Users";
+import Post from "@/components/Post";
 
 Vue.use(Router);
 
@@ -18,12 +20,25 @@ const router = new Router({
             redirect: { name: 'posts' },
             children: [
                 {
-                    path: 'posts',
-                    name: 'posts'
+                    path: 'posts/:page?',
+                    name: 'posts',
+                    component: Posts,
+                },
+                {
+                    path: 'posts/edit/:id',
+                    name: 'edit',
+                    component: Post
                 },
                 {
                     path: 'users',
-                    name: 'users'
+                    name: 'users',
+                    component: Users,
+                    children: [
+                        {
+                            path: 'edit/:id',
+                            name: 'edit',
+                        },
+                    ]
                 }
             ]
         },
@@ -42,11 +57,6 @@ const router = new Router({
                     name: 'register',
                 }
             ]
-        },
-        {
-            path: '/edit/:id',
-            name: 'edit',
-            component: Post,
         },
         {
             path: '/new-post',

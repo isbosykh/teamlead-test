@@ -9,15 +9,6 @@
 </template>
 
 <script>
-    // TODO: - Create Users list (similar with posts)
-
-
-    // TODO: To commit:
-    // TODO: - Auth form validation
-    // TODO: - Rework vuex-store with internet-speed considering
-    // TODO: - Fixed header
-    // TODO: - Server start command added to README.md
-
     import Header from "@/components/Header";
 
     export default {
@@ -33,7 +24,7 @@
     $navbar-breakpoint: 0;
 
     $colors: (
-            "blue": (#326EF4, $primary-invert)
+            "blue": (#326EF4, $primary-invert),
     );
 
     @import "~bulma";
@@ -48,15 +39,15 @@
     }
 
     html {
-        min-height: 100%;
         display: flex;
+        min-height: 100%;
         flex-direction: column;
 
         body {
-            display: flex;
-            flex-direction: column;
             flex-grow: 1;
+            display: flex;
             background: #EBEBEB;
+            flex-direction: column;
 
             * {
                 box-sizing: border-box;

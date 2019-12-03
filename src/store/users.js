@@ -14,9 +14,13 @@ export default ({
         updateUsers(state, payload) {
             state.users = payload
         },
+        changeSortOptions(state, payload) {
+            state.sortOptions = Object.assign(state.sortOptions, payload);
+            this.dispatch('users/updateUsers');
+        }
     },
     actions: {
-        getUsers({commit}) {
+        updateUsers({commit}) {
             return getUsers().then(response => {
                 commit('updateUsers', response);
                 return response

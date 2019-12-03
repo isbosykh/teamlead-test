@@ -4,18 +4,21 @@ export default ({
     namespaced: true,
     state: {
         posts: [],
+        amount: 0,
         sortOptions: {
-            paginate: 10,
             page: 1,
-            amount: 0
+            paginate: 10,
         }
     },
     mutations: {
+        addPost(state, payload) {
+            state.posts.push(payload)
+        },
         updatePosts(state, payload) {
             state.posts = payload
         },
-        addPost(state, payload) {
-            state.posts.push(payload)
+        updateAmount(state, payload) {
+            state.amount = payload
         },
         updatePost(state, payload) {
             state.post = payload
@@ -24,14 +27,14 @@ export default ({
             state.posts.splice(payload, 1)
         },
         changeSortOptions(state, payload) {
-            Object.assign(state.sortOptions, payload);
-            this.dispatch('posts/updatePosts');
+            state.sortOptions = Object.assign(state.sortOptions, payload);
         }
     },
     actions: {
-        updatePosts({commit, state}, page = state.sortOptions.page, paginate = state.sortOptions.paginate) {
-            return getPosts(page, paginate).then(response => {
-                commit('updatePosts', response)
+        updatePosts({commit, state}, _page = state.sortOptions.page, _limit = state.sortOptions.paginate) {
+            return getPosts({_page, _limit}).then(response => {
+                commit('updatePosts', response.items);
+                commit('updateAmount', response.count);
             })
         },
         createPost({commit}, data) {
@@ -65,8 +68,11 @@ export default ({
                 }
             }
         },
-        amount(state) {
-            return state.posts.length
+        posts(state) {
+            return state.posts
+        },
+        paginate(state) {
+            return state.sortOptions.paginate
         }
     },
 })
