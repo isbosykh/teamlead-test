@@ -1,5 +1,5 @@
 <template>
-    <List :list="list" @update:current="current" :options="{ amount, paginate }" namespace="posts">
+    <List :key="page" v-if="list" :list="list" :current.sync="page" :options="{ amount, paginate }" namespace="posts">
         <template slot-scope="{ item, index }">
             <User :index="index" :data="item"/>
         </template>
@@ -15,24 +15,41 @@
         components: { List, User },
         computed: {
             list() {
-                return this.$store.state.users.users
+                return this.$store.getters['users/users']
             },
             amount() {
                 return this.$store.getters['users/amount']
             },
             paginate() {
                 return this.$store.state['users'].sortOptions.paginate
+            },
+            page: {
+                get() {
+                    return parseInt(this.$route.params.page) || 1;
+                },
+                set(value) {
+                    this.$router.push({
+                        name: 'users',
+                        params: {
+                            page: value
+                        }})
+                }
             }
-        },
-        mounted() {
-            this.$store.dispatch('users/updateUsers')
         },
         methods: {
-            current(page) {
-                this.$store.commit('users/changeSortOptions', page);
-                this.$store.dispatch('users/updateUsers')
+            updateUsers(params) {
+                this.$store.dispatch('users/updateUsers', params.page)
             }
-        }
+        },
+        beforeRouteEnter(to, from, next) {
+            next(vm => {
+                vm.updateUsers(to.params)
+            });
+        },
+        beforeRouteUpdate(to, from, next) {
+            this.$nextTick(() => this.updateUsers(to.params));
+            next();
+        },
     }
 </script>
 

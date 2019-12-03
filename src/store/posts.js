@@ -73,6 +73,9 @@ export default ({
         },
         paginate(state) {
             return state.sortOptions.paginate
+        },
+        amount(state) {
+            return state.amount
         }
     },
 })

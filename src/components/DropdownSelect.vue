@@ -20,8 +20,13 @@
         },
         methods: {
             changePaginate(value) {
-                    this.$store.commit(`${this.path}/changeSortOptions`, {paginate: value});
+                if (this.path === 'users') {
+                    this.$store.commit('users/changeSortOptions', {paginate: value});
+                    this.$store.dispatch('users/updateUsers')
+                } else if (this.path === 'posts') {
+                    this.$store.commit('posts/changeSortOptions', {paginate: value});
                     this.$store.dispatch('posts/updatePosts')
+                }
             }
         }
     }

@@ -7,30 +7,6 @@
       "role": "writer"
     },
     {
-      "id": 2,
-      "login": "reader@mail.com",
-      "password": 123456,
-      "role": "reader"
-    },
-    {
-      "login": "",
-      "password": "",
-      "role": "reader",
-      "id": 3
-    },
-    {
-      "login": "mazafakaa",
-      "password": "asf",
-      "role": "reader",
-      "id": 4
-    },
-    {
-      "login": "ыфп",
-      "password": "фывп",
-      "role": "reader",
-      "id": 5
-    },
-    {
       "login": "afsaf@mail.com",
       "password": "afs",
       "role": "reader",

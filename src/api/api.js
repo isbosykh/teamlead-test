@@ -77,8 +77,21 @@ export function deletePost(id) {
 
 //USERS
 
-export function getUsers() {
-    return get(`${url}/users`)
+export function getUsers(options) {
+    return Promise.all([
+        get(`${url}/users`, options),
+        get(`${url}/users`)
+    ])
+        .then(values => {
+            return {
+                count: values[1].length,
+                items: values[0]
+            }
+        });
+}
+
+export function deleteUser(id) {
+    return del(`${url}/users/${id}`)
 }
 
 

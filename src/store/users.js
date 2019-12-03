@@ -1,18 +1,24 @@
-import {getUsers} from "@/api/api";
+import {deleteUser, getUsers} from "@/api/api";
 
 export default ({
     namespaced: true,
     state: {
         users: [],
+        amount: 0,
         sortOptions: {
             paginate: 10,
             page: 1,
-            amount: 0
         }
     },
     mutations: {
         updateUsers(state, payload) {
             state.users = payload
+        },
+        updateAmount(state, payload) {
+            state.amount = payload
+        },
+        deleteUser(state, payload) {
+            state.users.splice(payload, 1)
         },
         changeSortOptions(state, payload) {
             state.sortOptions = Object.assign(state.sortOptions, payload);
@@ -20,13 +26,21 @@ export default ({
         }
     },
     actions: {
-        updateUsers({commit}) {
-            return getUsers().then(response => {
-                commit('updateUsers', response);
+        updateUsers({commit, state}, _page = state.sortOptions.page, _limit = state.sortOptions.paginate) {
+            return getUsers({_page, _limit}).then(response => {
+                commit('updateUsers', response.items);
+                commit('updateAmount', response.count);
                 return response
             })
         },
-    },
+        deleteUser({commit}, data) {
+            return deleteUser(data.id).then(response => {
+                commit('deleteUser', data.index);
+                return response
+            })
+        }
+    }
+    ,
     getters: {
         users(state) {
             return state.users
